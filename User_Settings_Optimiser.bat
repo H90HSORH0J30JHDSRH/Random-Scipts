@@ -4,7 +4,7 @@ echo [94m-----User_Settings_Optimiser-----[0m
 echo.
 echo [94mCreated By: Hackboto Tech Tips[0m
 echo.
-echo [94mVersion: 1.2.6[0m
+echo [94mVersion: 1.2.8[0m
 echo.
 ::Print Terms and Conditions
 echo -----Terms and Conditions-----
@@ -78,6 +78,7 @@ if /i "%continue%"=="Y" (
 	reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.BackupReminder" /v "Enabled" /t REG_DWORD /d 0 /f
 	REG ADD "HKCU\Software\Mozilla\NativeMessagingHosts\Firefox" /v IsDefaultBrowser /t REG_DWORD /d 1 /f
 	REG Add "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableSearchBoxSuggestions /T REG_DWORD /D 1 /F
+	reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v IsBatteryPercentageEnabled /t REG_DWORD /d 1 /f
 	::Office
 	::Teaching cards disable
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "SLRToggleReplaceTeachingCalloutID" /t REG_DWORD /d 2 /f
@@ -90,13 +91,13 @@ if /i "%continue%"=="Y" (
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "ThreadedCommentsCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "PowerQueryAsDefaultGetDataTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "AutoSaveToggleOnExcel" /t REG_DWORD /d 2 /f
-	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "FocusedInboxTeachingCallout_7" /t REG_DWORD /d 1 /f
+	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "FocusedInboxTeachingCallout_7" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "AutocreateTeachingCallout_MoreLocations" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "GroupAdvancedSettingsTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "GroupUnreadCountTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "StatusBarFormulasTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "PreviewPlaceUpdate" /t REG_DWORD /d 2 /f
-	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "Word_TextPredictor_InCanvas" /t REG_DWORD /d 1 /f
+	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "Word_TextPredictor_InCanvas" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "SuggestedRepliesCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "AccCheckerStatusBarTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "MeetingAllowForwardTeachingCallout" /t REG_DWORD /d 2 /f
@@ -107,7 +108,7 @@ if /i "%continue%"=="Y" (
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "HubBarTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "LineageDiscoverabilityTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "PinAppTeachingCallout" /t REG_DWORD /d 2 /f
-	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "LineageFilterTeachingCallout" /t REG_DWORD /d 1 /f
+	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "LineageFilterTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "OneNoteQuickNoteToolbarToggleButtonCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "ComingSoonTeachingCallout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "Search.TopResults" /t REG_DWORD /d 2 /f
@@ -130,6 +131,7 @@ if /i "%continue%"=="Y" (
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "PPT_RecordVideoPresentation_Callout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "PPT_InsertCameo_Callout" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "NavigationPaneTeachingCallout" /t REG_DWORD /d 2 /f
+	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\TeachingCallouts" /v "WordZoomSliderStatusBarAnchorV2" /t REG_DWORD /d 2 /f
 	reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Outlook\Preferences" /v "UseNewOutlook" /t REG_DWORD /d 0 /f
 	reg add "HKCU\Software\Microsoft\Office\16.0\Outlook\Options\General" /v "HideNewOutlookToggle" /t REG_DWORD /d 1 /f
 	reg add "HKCU\Software\Microsoft\Office\16.0\Common\Privacy\SettingsStore\Anonymous" /v "OptionalConnectedExperiencesNoticeVersion" /t REG_DWORD /d 2 /f
@@ -137,6 +139,8 @@ if /i "%continue%"=="Y" (
 	reg add "HKCU\Software\Microsoft\Office\16.0\Common\Toolbars\Outlook" /v "QuickAccessToolbarStyleExplorer" /t REG_DWORD /d 16 /f
 	reg add "HKCU\Software\Microsoft\Office\16.0\Outlook\Preferences" /v "EnableSingleLineRibbon" /t REG_DWORD /d 0 /f
 	reg add "HKCU\Software\Microsoft\Office\16.0\OneNote\General" /v "IsImmersiveModeLandscape" /t REG_DWORD /d 0 /f
+	REG ADD "HKCU\Software\Microsoft\Office\16.0\Common\Graphics" /v "DisableAnimations" /t REG_DWORD /d 1 /f
+	reg add "HKCU\software\policies\microsoft\office\16.0\outlook\options\general" /v disableoutlookmobilehyperlink /t REG_DWORD /d 1 /f
 :: Informing the user that settings are applied
     powershell -WindowStyle Hidden -Command "[System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') | Out-Null; [System.Windows.Forms.MessageBox]::Show('Your user account settings were successfully optimised.', 'Successful', 'OK', 'Information')" > nul
 
