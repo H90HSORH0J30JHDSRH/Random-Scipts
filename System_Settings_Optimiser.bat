@@ -44,7 +44,7 @@ echo [94m-----System_Settings_Optimiser-----[0m
 echo.
 echo [94mCreated By: Hackboto Tech Tips[0m
 echo.
-echo [94mVersion: 1.2.8[0m
+echo [94mVersion: 1.2.9[0m
 echo.
 ::Print Terms and Conditions
 echo -----Terms and Conditions-----
@@ -171,6 +171,7 @@ if /i "%continue%"=="Y" (
 		reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.BackupReminder" /v "Enabled" /t REG_DWORD /d 0 /f
 		REG Add "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableSearchBoxSuggestions /T REG_DWORD /D 1 /F
 		reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v IsBatteryPercentageEnabled /t REG_DWORD /d 1 /f
+		reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Suggested" /v "Enabled" /t REG_DWORD /d 0 /f
 		reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge" /v "NewTabPageAllowedBackgroundTypes" /t REG_DWORD /d 3 /f
 		reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge" /v "NewTabPageHideDefaultTopSites" /t REG_DWORD /d 1 /f
 		reg add "HKLM\Software\Policies\Microsoft\Edge" /v "AllowSurfGame" /t REG_DWORD /d 0 /f
@@ -448,11 +449,17 @@ if /i "%continue%"=="Y" (
 		reg add "HKCU\Software\Microsoft\Office\16.0\OneNote\General" /v "IsImmersiveModeLandscape" /t REG_DWORD /d 0 /f
 		REG ADD "HKCU\Software\Microsoft\Office\16.0\Common\Graphics" /v "DisableAnimations" /t REG_DWORD /d 1 /f
 		reg add "HKCU\software\policies\microsoft\office\16.0\outlook\options\general" /v disableoutlookmobilehyperlink /t REG_DWORD /d 1 /f
+		reg add "HKCU\Software\Microsoft\Office\16.0\PowerPoint\Options" /v "EnableSuggestionServiceUserSetting" /t REG_DWORD /d 0 /f
 :: Uninstall bloat
 	:: Copilot, and other Bloat
 		powershell.exe -command "Get-AppxPackage -AllUsers | Where-Object {$_.Name -like '*Microsoft.Copilot*'} | Remove-AppxPackage -AllUsers -ErrorAction Continue"
 		powershell.exe -command "Get-AppxPackage -AllUsers *Microsoft.549981C3F5F10* | Remove-AppxPackage -AllUsers -ErrorAction Continue"
 		powershell.exe -command "Get-AppxPackage -AllUsers *Clipchamp* | Remove-AppxPackage -AllUsers -ErrorAction Continue"
+		powershell.exe -command "Get-AppxPackage -AllUsers *feedback* | Remove-AppxPackage -AllUsers -ErrorAction Continue"
+		powershell.exe -command "Get-AppxPackage -AllUsers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers -ErrorAction Continue"
+		powershell.exe -command "Get-AppxPackage -AllUsers *bingweather* | Remove-AppxPackage -AllUsers -ErrorAction Continue"
+		powershell.exe -command "Get-AppxPackage -AllUsers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers -ErrorAction Continue"
+		DISM /Online /Disable-Feature /FeatureName:Recall /NoRestart
 ::security
 	::Essential improvements
 		reg add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v SMB1 /t REG_DWORD /d 0 /f
